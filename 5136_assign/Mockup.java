@@ -83,7 +83,90 @@ public class Mockup
     
     public void SearchHall()
     {
-        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome Customer!");
+        String choice = "0";
+        while(!choice.equals("7"))
+        {
+            System.out.println("Select one you want to search with:");
+            System.out.println("1. Hall name:");
+            System.out.println("2. Location:");
+            System.out.println("3. Available date:");
+            System.out.println("4. Available time:");
+            System.out.println("5. Owner:");
+            System.out.println("6. Rate:");
+            System.out.println("7. Exit.");
+            System.out.println("Press select your choice:");
+            choice = sc.nextLine();
+            if(choice.equals("1"))
+            {
+                System.out.println("Please input the hall name you want to search:");
+                String newName = sc.nextLine();
+                System.out.println("Searching...");
+                System.out.println("Customer,here is the result:");
+                System.out.println("Search for another condition?(y/n)");
+                String choose = sc.nextLine();
+                if(choose.equals("n"))
+                    choice = "7";
+            }
+            else if(choice.equals("2"))
+            {
+                System.out.println("Please input the location you want to search:");
+                String newLocation = sc.nextLine();
+                System.out.println("Searching...");
+                System.out.println("Customer,here is the result:");
+                System.out.println("Search for another condition?(y/n)");
+                String choose = sc.nextLine();
+                if(choose.equals("n"))
+                    choice = "7";
+            }
+            else if(choice.equals("3"))
+            {
+                System.out.println("Please input the date you want to search:");
+                String newDate = sc.nextLine();
+                System.out.println("Searching...");
+                System.out.println("Customer,here is the result:");
+                System.out.println("Search for another condition?(y/n)");
+                String choose = sc.nextLine();
+                if(choose.equals("n"))
+                    choice = "7";
+            }
+            else if(choice.equals("4"))
+            {
+                System.out.println("Please input the time you want to search:(morning/afternoon/evening)");
+                String newTime = sc.nextLine();
+                System.out.println("Searching...");
+                System.out.println("Customer,here is the result:");
+                System.out.println("Search for another condition?(y/n)");
+                String choose = sc.nextLine();
+                if(choose.equals("n"))
+                    choice = "7";
+            }
+            else if(choice.equals("5"))
+            {
+                System.out.println("Please input the owner you want to search:");
+                String newOwner = sc.nextLine();
+                System.out.println("Searching...");
+                System.out.println("Customer,here is the result:");
+                System.out.println("Search for another condition?(y/n)");
+                String choose = sc.nextLine();
+                if(choose.equals("n"))
+                    choice = "7";
+            }
+            else if(choice.equals("6"))
+            {
+                System.out.println("Please input the rate you want to search:");
+                String newRate = sc.nextLine();
+                System.out.println("Searching...");
+                System.out.println("Customer,here is the result:");
+                System.out.println("Search for another condition?(y/n)");
+                String choose = sc.nextLine();
+                if(choose.equals("n"))
+                    choice = "7";
+            }
+            else if(choice.equals("7"))
+                break;
+        }
     }
     
     public void RequestQuotation()
@@ -93,7 +176,7 @@ public class Mockup
         int cost = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Please input the number of people attending:");
-        int capacity = sc.nextInt();
+        String capacity = sc.nextLine();
         while(bol == false)
         {
             System.out.println("Please select if catering need to be provided(y/n):");
@@ -130,8 +213,48 @@ public class Mockup
     public void BookHall()
     { 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to Booking Process!");
-        System.out.println("");
+        System.out.println("Welcome to Booking Process!Please follow the instruction.");
+        System.out.println("Press enter to continue");
+        sc.nextLine();
+        System.out.println("Please input Customer FirstName:");
+        String fname = sc.nextLine();
+        System.out.println("Please input Customer LastName:");
+        String lname = sc.nextLine();
+        System.out.println("Please input Event type:");
+        String type = sc.nextLine();
+        System.out.println("Please input contact phone number:");
+        String phone = sc.nextLine();
+        System.out.println("Please input contact email:");
+        String email = sc.nextLine();
+        System.out.println("Please input number of people attending:");
+        int capacity = sc.nextInt();
+        System.out.println("Need catering?(y/n)");
+        String catering = sc.nextLine();
+        boolean bool = true;
+        if(catering.equals("y"))
+            bool = true;
+        else if(catering.equals("n"))
+            bool = false;
+        System.out.println("Press enter to continue");
+        sc.nextLine();
+        
+        System.out.println("Customer, here is your booking detail:");
+        System.out.println("Customer Fullname: " + fname + " " + lname);
+        System.out.println("Customer Contact phone: " + phone);
+        System.out.println("Customer email: " + email);
+        System.out.println("Event type: " + type);
+        System.out.println("Number of people attending: " + capacity);
+        if(bool == true)
+            System.out.println("Catering provided.");
+        else if(bool == false)
+            System.out.println("Catering do not provided.");
+        
+        System.out.println("Press enter to make a confirmation.");
+        sc.nextLine();
+        
+        System.out.println("Your booking is now in process. Please wait for owner to confirm.");
+        System.out.println("Press enter to continue");
+        sc.nextLine();
     }
     
     public void CreateHall()
@@ -147,9 +270,9 @@ public class Mockup
          System.out.println("Please input the hall location:");
          String location = sc.nextLine();
          System.out.println("Please input the base price of the hall:");
-         double price = sc.nextDouble();
+         String price = sc.nextLine();
          System.out.println("Please input the hall capacity:");
-         int capacity = sc.nextInt();
+         String capacity = sc.nextLine();
          System.out.println("Please input the hall available time in next 2 weeks:");
          String time = sc.nextLine();
          System.out.println("Press enter to continue");
@@ -172,15 +295,9 @@ public class Mockup
     public void EditHall()
     {
         Scanner sc = new Scanner(System.in);
-        String name = " ";
-        String description = " ";
-        String location = " ";
-        double price = 0;
-        int capacity = 0;
-        String time = " ";
-        int choice = 0;
+        String choice = "0";
         System.out.println("Welcome owner!");
-        while(choice != 7)
+        while(!choice.equals("7"))
         {
             System.out.println("Please Select what you want to edit.");
             System.out.println("1. Hall name");
@@ -190,24 +307,80 @@ public class Mockup
             System.out.println("5. Hall capacity");
             System.out.println("6. Hall available time in next 2 weeks");
             System.out.println("7. End edition.");
-            choice = sc.nextInt();
-            if(choice == 1)
-                name = sc.nextLine();
-            else if(choice == 2)
-                description = sc.nextLine();
-            else if(choice == 3)
-                location = sc.nextLine();
-            else if(choice == 4)
-                price = sc.nextDouble();
-            else if(choice == 5)
-                capacity = sc.nextInt();
-            else if(choice == 6)
-                time = sc.nextLine();
+            choice = sc.nextLine();
+            if(choice.equals("1"))
+            {
+                System.out.println("Please input new hall name:");
+                String name = sc.nextLine();
+                System.out.println("The new hall name is: " + name);
+                System.out.println("Exit edition?");
+                String choose = sc.nextLine();
+                if(choose.equals("y"))
+                    choice = "7";
+            }
+            else if(choice.equals("2"))
+            {
+                System.out.println("Please input new hall description:");
+                String description = sc.nextLine();
+                System.out.println("The new hall description is: " + description);
+                System.out.println("Exit edition?");
+                String choose = sc.nextLine();
+                if(choose.equals("y"))
+                    choice = "7";
+            }
+            else if(choice.equals("3"))
+            {
+                System.out.println("Please input new hall location:");
+                String location = sc.nextLine();
+                System.out.println("The new hall location is: " + location);
+                System.out.println("Exit edition?");
+                String choose = sc.nextLine();
+                if(choose.equals("y"))
+                    choice = "7";
+            }
+            else if(choice.equals("4"))
+            {
+                System.out.println("Please input new hall base price:");
+                double price = sc.nextDouble();
+                System.out.println("The new hall base price per person is: " + price);
+                System.out.println("Exit edition?");
+                String choose = sc.nextLine();
+                if(choose.equals("y"))
+                    choice = "7";
+            }
+            else if(choice.equals("5"))
+            {
+                System.out.println("Please input new hall capacity:");
+                int capacity = sc.nextInt();
+                System.out.println("The new hall capacity is: " + capacity);
+                System.out.println("Exit edition?");
+                String choose = sc.nextLine();
+                if(choose.equals("y"))
+                    choice = "7";
+            }
+            else if(choice.equals("6"))
+            {
+                System.out.println("Please input new hall available datetime:");
+                String time = sc.nextLine();
+                System.out.println("The new hall available time in two weeks is: " + time);
+                System.out.println("Exit edition?");
+                String choose = sc.nextLine();
+                if(choose.equals("y"))
+                    choice = "7";
+            }
+            else if(choice.equals("7"))
+                break;
         }
+        System.out.println("Press enter to exit.");
         sc.nextLine();
     }
     
     public void Logout()
     {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Do you want to Logout? (y/n)");
+        String choice = sc.nextLine();
+        if(choice.equals("y"))
+            System.out.println("You have already Logout.");
     }
 }
