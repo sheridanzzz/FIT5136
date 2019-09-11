@@ -15,24 +15,16 @@ public class Mockup
      * Constructor for objects of class Mockup
      */
     public Mockup()
-    {
-        // initialise instance variables
-        x = 0;
+    {    
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public void Welcome()
     {
         System.out.println("**************************************");
         System.out.println("    Welcome to Prime Event System!");
         System.out.println("**************************************");
     }
-    
+
     public void Menu()
     {
         System.out.println("Please Select:");
@@ -43,7 +35,7 @@ public class Mockup
         int choice;
         choice = sc.nextInt();
     }
-    
+
     public void Login()
     {
         Scanner sc = new Scanner(System.in);
@@ -55,7 +47,7 @@ public class Mockup
         System.out.println("Press enter to continue");
         sc.nextLine();
     }
-    
+
     public void Register()
     {
         Scanner sc = new Scanner(System.in);
@@ -72,7 +64,7 @@ public class Mockup
         String password = sc.nextLine();
         System.out.println("Press enter to continue");
         sc.nextLine();
-        
+
         System.out.println("Welcome,customer!");
         System.out.println("Your login email is " + email);
         System.out.println("Your password is " + password);
@@ -80,7 +72,7 @@ public class Mockup
         System.out.println("Press enter to continue");
         sc.nextLine();
     }
-    
+
     public void SearchHall()
     {
         Scanner sc = new Scanner(System.in);
@@ -168,7 +160,7 @@ public class Mockup
                 break;
         }
     }
-    
+
     public void RequestQuotation()
     {
         boolean bool = true;
@@ -209,7 +201,7 @@ public class Mockup
         System.out.println("Press enter to continue");
         sc.nextLine();
     }
-    
+
     public void BookHall()
     { 
         Scanner sc = new Scanner(System.in);
@@ -237,7 +229,7 @@ public class Mockup
             bool = false;
         System.out.println("Press enter to continue");
         sc.nextLine();
-        
+
         System.out.println("Customer, here is your booking detail:");
         System.out.println("Customer Fullname: " + fname + " " + lname);
         System.out.println("Customer Contact phone: " + phone);
@@ -248,50 +240,50 @@ public class Mockup
             System.out.println("Catering provided.");
         else if(bool == false)
             System.out.println("Catering do not provided.");
-        
+
         System.out.println("Press enter to make a confirmation.");
         sc.nextLine();
-        
+
         System.out.println("Your booking is now in process. Please wait for owner to confirm.");
         System.out.println("Press enter to continue");
         sc.nextLine();
     }
-    
+
     public void CreateHall()
     {
-         Scanner sc = new Scanner(System.in);
-         System.out.println("Welcome, owner! Please follow the instruction to create a hall.");
-         System.out.println("Press enter to continue");
-         sc.nextLine();
-         System.out.println("Please input the hall name:");
-         String name = sc.nextLine();
-         System.out.println("Please input the hall description:");
-         String description = sc.nextLine();
-         System.out.println("Please input the hall location:");
-         String location = sc.nextLine();
-         System.out.println("Please input the base price of the hall:");
-         String price = sc.nextLine();
-         System.out.println("Please input the hall capacity:");
-         String capacity = sc.nextLine();
-         System.out.println("Please input the hall available time in next 2 weeks:");
-         String time = sc.nextLine();
-         System.out.println("Press enter to continue");
-         sc.nextLine();
-         
-         System.out.println("Please comfirm:");
-         System.out.println("Hall name: " + name);
-         System.out.println("Hall description: " + description);
-         System.out.println("Hall location: " + location);
-         System.out.println("Base price per person: " + price);
-         System.out.println("Hall capacity: " + capacity);
-         System.out.println("Available timetable in next 2 weeks: " + time);
-         System.out.println("Press enter to continue");
-         sc.nextLine();
-         
-         System.out.println("Hall " + name + " has already been created! Press enter to continue");
-         sc.nextLine();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome, owner! Please follow the instruction to create a hall.");
+        System.out.println("Press enter to continue");
+        sc.nextLine();
+        System.out.println("Please input the hall name:");
+        String name = sc.nextLine();
+        System.out.println("Please input the hall description:");
+        String description = sc.nextLine();
+        System.out.println("Please input the hall location:");
+        String location = sc.nextLine();
+        System.out.println("Please input the base price of the hall:");
+        String price = sc.nextLine();
+        System.out.println("Please input the hall capacity:");
+        String capacity = sc.nextLine();
+        System.out.println("Please input the hall available time in next 2 weeks:");
+        String time = sc.nextLine();
+        System.out.println("Press enter to continue");
+        sc.nextLine();
+
+        System.out.println("Please comfirm:");
+        System.out.println("Hall name: " + name);
+        System.out.println("Hall description: " + description);
+        System.out.println("Hall location: " + location);
+        System.out.println("Base price per person: " + price);
+        System.out.println("Hall capacity: " + capacity);
+        System.out.println("Available timetable in next 2 weeks: " + time);
+        System.out.println("Press enter to continue");
+        sc.nextLine();
+
+        System.out.println("Hall " + name + " has already been created! Press enter to continue");
+        sc.nextLine();
     }
-    
+
     public void EditHall()
     {
         Scanner sc = new Scanner(System.in);
@@ -374,7 +366,7 @@ public class Mockup
         System.out.println("Press enter to exit.");
         sc.nextLine();
     }
-    
+
     public void Logout()
     {
         Scanner sc = new Scanner(System.in);
