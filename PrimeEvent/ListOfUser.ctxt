@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=ListOfUser
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ListOfUser\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=ListOfUser()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ ListOfUser\r\n
+comment2.params=
+comment2.target=java.util.ArrayList\ getListOfUser()
+comment3.params=newUsers
+comment3.target=void\ setListOfUser(java.util.ArrayList)
+comment4.params=user
+comment4.target=void\ editUserInfo(User)
+comment5.params=user
+comment5.target=void\ disableUser(User)
+comment6.params=usremail
+comment6.target=User\ checkAUser(java.lang.String)
+numComments=7

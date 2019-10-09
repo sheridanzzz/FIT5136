@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Booking
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Booking\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Booking()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Booking\r\n
+comment10.params=
+comment10.target=Quotation\ getQuotation()
+comment11.params=newQuotation
+comment11.target=void\ setQuotation(Quotation)
+comment2.params=
+comment2.target=User\ getUser()
+comment3.params=newUser
+comment3.target=void\ setUser(User)
+comment4.params=
+comment4.target=java.util.Date\ getBookingDate()
+comment5.params=newBookingDate
+comment5.target=void\ setBookingDate(java.util.Date)
+comment6.params=
+comment6.target=float\ getDiscountPercent()
+comment7.params=newDiscountPercent
+comment7.target=void\ setDiscountPercent(float)
+comment8.params=
+comment8.target=boolean\ getBookingStatus()
+comment9.params=newBookingStatus
+comment9.target=void\ setBookingStatus(boolean)
+numComments=12
