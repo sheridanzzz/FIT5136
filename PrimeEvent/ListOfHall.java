@@ -12,11 +12,20 @@ public class ListOfHall
 {
     private ArrayList<Hall> halls;
 
+    public ListOfHall()
+    {
+        halls = new ArrayList<Hall>();
+    }
+    
     /**
      * Constructor for objects of class ListOfHall
      */
-    public ListOfHall()
-    throws java.text.ParseException
+    public ListOfHall(ArrayList<Hall> newHallList)
+    {
+        halls = newHallList;
+    }
+        
+    public void InitialHallList()throws java.text.ParseException
     {
 
         halls = new ArrayList<Hall>();
@@ -51,6 +60,7 @@ public class ListOfHall
         halls.add(hall2);
 
     }
+    
     public ArrayList<Hall> getHalls()
     {
         return halls;
@@ -70,7 +80,19 @@ public class ListOfHall
     {
         halls.remove(hall);
     }
-
+    
+    public void generateHall()
+    {
+        try
+        {
+            InitialHallList();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+    
     public ArrayList<Hall> getListOfAvailableHalls()
     {
         ArrayList<Hall> availHalls = new ArrayList<Hall>();

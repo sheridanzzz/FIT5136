@@ -19,7 +19,12 @@ public class User
      */
     public User()
     {
-
+        fName = " ";
+        lName = " ";
+        emailAddress = " ";
+        password = " ";
+        accountStatus = true;
+        listOfQuotation = new ArrayList<Quotation>();
     }
     
     public User(String newFName, String newLname, String newEmailAddress, String newPassword)
@@ -31,6 +36,7 @@ public class User
         accountStatus = true;
         listOfQuotation = new ArrayList<Quotation>(); 
     }
+    
     public String getFname()
     {
         return fName;

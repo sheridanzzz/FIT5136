@@ -8,7 +8,6 @@
 public class Quotation
 {
     // instance variables - replace the example below with your own
-
     private Hall hall;
     private float estimatedPrice;
     private String typeOfEvent;
@@ -21,7 +20,11 @@ public class Quotation
     public Quotation()
     {
         // initialise instance variables
-
+        hall = new Hall();
+        estimatedPrice = 0;
+        typeOfEvent = " ";
+        isCateringPreferred = false;
+        noOfPeopleAttending = 0;
     }
     
     public Quotation(Hall newHall,float newEstPrice,String newTypeOfEv, boolean newIsCatePref, int newNoOfPeopAttend)
@@ -82,22 +85,14 @@ public class Quotation
     {
         noOfPeopleAttending = newNoOfPeopleAttending;
     }
-    
    
     public boolean checkCapacity(int planedNoOfPeopleAttend, Hall newHall)
     {
         if (planedNoOfPeopleAttend <= newHall.getHallCapacity())
-        return true;
+            return true;
         else
-        return false;
+            return false;
     }
     
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
 
 }

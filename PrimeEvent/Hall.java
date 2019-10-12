@@ -18,9 +18,9 @@ public class Hall
     private float averageRating; //problem
     private float hallBasePrice;
     private int hallCapacity;
-    //private Date[] datesNotAvailableTime;
+    private Date[] datesNotAvailableTime;
     private ArrayList<Date> datesHasNotAvailableTime;
-    //private String timeslotAvailable;// problem
+    private String timeslotAvailable;// problem
     private int[][] timeslotNotAvailable;  
     private Date updateDates;
     private boolean hallIsAvailable;

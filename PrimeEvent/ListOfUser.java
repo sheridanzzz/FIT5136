@@ -16,7 +16,7 @@ public class ListOfUser
     {
         users = new ArrayList<User>();
         users.add(new User("David","Dan","yyim0003@student.monash.edu","dandandan"));
-        
+        users.add(new User("Peter","Smith","peter@gmail.com","123456"));
     }
 
     public ArrayList<User> getListOfUser()
@@ -39,14 +39,16 @@ public class ListOfUser
         user.setAccountStatus(false);
     }
     
-    public User checkAUser(String usremail)
+    public boolean checkAUser(String usremail)
     {
-        User usr = null;
-        for (User user:users)
+        boolean bool = true;
+        for (int i = 0; i < users.size(); i++)
         {
-            if (user.getEmailAddr().equals(usremail))
-            usr = user;
+            if (users.get(i).getEmailAddr().equals(usremail))
+                bool = true;
+            else
+                bool = false;
         }
-        return usr;
+        return bool;
     }
 }

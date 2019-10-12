@@ -19,7 +19,11 @@ public class Booking
      */
     public Booking()
     {
-
+        user = new User();
+        bookingDate = new Date();
+        discountPercent = 0;
+        bookingStatus = true;
+        quotation = new Quotation();
     }
 
     public User getUser()
@@ -71,6 +75,4 @@ public class Booking
     {
         quotation = newQuotation;
     }
-
-
 }

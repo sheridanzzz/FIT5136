@@ -11,17 +11,46 @@ public class PrimeEvent
     private User logedInUser;
     private ListOfUser users;
     private ListOfHall halls;
+    
     public PrimeEvent()
     {
+        logedInUser = new User();
         users = new ListOfUser();
+        halls = new ListOfHall();
+    }
+    
+    public PrimeEvent(User newUser,ListOfHall newHallList,ListOfUser newUserList)
+    {
+        logedInUser = newUser;
+        users = newUserList;
+        halls = newHallList;
     }
 
     public void startSystem()
     {
-        UserInterface.displayWelcomeMessage();
-        customerLogin();
+        UserInterface boundary = new UserInterface();
+        Scanner sc = new Scanner(System.in);
+        int index = 0;
+        boolean bool = false;
+        boundary.displayWelcomeMessage();
+        while(bool == false)
+        {
+            boundary.displayMainMenu();
+            index = Integer.parseInt(sc.nextLine());
+            if(index == 1)
+            {
+                customerLogin();
+                bool = true;
+            }
+            else if(index == 2)
+            {
+                System.out.println("Register function will coming soon...");
+                bool = false;
+            }
+            else
+                System.exit(0);
+        }
         UserInterface.displayCustomerMainMenu();
-
     }
 
     public void customerLogin()
@@ -29,33 +58,43 @@ public class PrimeEvent
         Scanner scan = new Scanner(System.in);
         String inputEmail;
         String inputPasswd;
-        User user;
-        while(true)
+        UserInterface boundary = new UserInterface();
+        boolean bool = false;
+        int index = 0;
+        while(bool == false)
         {
-            UserInterface.displayLoginMenu();
+            boundary.displayLoginMenu();
             inputEmail = scan.nextLine();
-            user = users.checkAUser(inputEmail);
-            if(user == null)
+            bool = users.checkAUser(inputEmail);
+            if(bool == true)
             {
-                UserInterface.displayLoginError();
-                continue;
+                for(int i = 0; i < users.getListOfUser().size(); i++)
+                {
+                    if(users.getListOfUser().get(i).getEmailAddr().equals(inputEmail))
+                        index = i;
+                }
+            }
+            else
+                System.out.println("Please input a valid user account.");
+        }
+        boolean bol = false;
+        while(bol == false)
+        {
+            boundary.askForpasswd();
+            logedInUser = users.getListOfUser().get(index);
+            inputPasswd = scan.nextLine();
+            if (inputPasswd.equals(logedInUser.getPassword()))
+            {
+                System.out.println("Welcome back!" + logedInUser.getFname());
+                System.out.println("Press Enter to Continue!");
+                scan.nextLine();
+                customerMenu();
+                bol = true;
             }
             else
             {
-                UserInterface.askForpasswd();
-                inputPasswd = scan.nextLine();
-                if (inputPasswd.equals(user.getPassword()))
-                {
-                    logedInUser = user;
-                    UserInterface.displaySuscessfullyLogedin(logedInUser);
-                    customerMenu();
-                    break;
-                }
-                else
-                {
-                    UserInterface.displayPasswdError();
-                }
-
+                System.out.println("Please input correct password!");
+                bol = false;
             }
         }
     }
@@ -63,6 +102,7 @@ public class PrimeEvent
     public void customerMenu()
     {
         Scanner scan = new Scanner(System.in);
+        UserInterface boundary = new UserInterface();
         UserInterface.displayCustomerMainMenu();
         String choice = scan.nextLine();
         switch(choice)
@@ -71,7 +111,7 @@ public class PrimeEvent
             //case "2": selectViewQuotations(); break;
             //case "3": selectViewBookings(); break;
             case "4": System.exit(0); break;
-            default: UserInterface.displayInvalidInput();
+            default: boundary.displayInvalidInput();
         }
 
     }
@@ -79,10 +119,11 @@ public class PrimeEvent
     public void selectViewAllHall()
     {
         Scanner scan = new Scanner(System.in);
+        UserInterface boundary = new UserInterface();
         ArrayList<Hall> availaHalls = halls.getListOfAvailableHalls();
         UserInterface.displayAllHallInfo(halls.getListOfAvailableHalls());
         String choice = scan.nextLine();
-        int hallindexNo;
+        int hallindexNo = 0;
         while(true)
         {
             if (choice.equals("q"))
@@ -96,7 +137,7 @@ public class PrimeEvent
             }
             catch(Exception e)
             {
-                UserInterface.displayInvalidInput();
+                boundary.displayInvalidInput();
                 scan.nextLine();
             }
             if (hallindexNo > 0 && hallindexNo < availaHalls.size()+1)
@@ -117,7 +158,7 @@ public class PrimeEvent
                     }
                     if (choic.equals("n"))
                     {
-                        viewAllHalls();
+                        //viewAllHalls();
                         break;
                     }
                     System.out.println("Invalid Input!");
@@ -135,23 +176,24 @@ public class PrimeEvent
     public float calculatePrice(Quotation quotation)
     {
         if(quotation.getIsCateringPreferred() == false)
-        return quotation.getNoOfPeopleAttending() * quotation.getHall().getHallBasePrice();
+            return quotation.getNoOfPeopleAttending() * quotation.getHall().getHallBasePrice();
         else
-        return quotation.getNoOfPeopleAttending() * (quotation.getHall().getHallBasePrice()+20);
+            return quotation.getNoOfPeopleAttending() * (quotation.getHall().getHallBasePrice() + 20);
     }
 
     public void setQuotation(Hall hall)
     {
         Scanner scan = new Scanner(System.in);
-        UserInterface.displayQuotationMenu();
+        UserInterface boundary = new UserInterface();
+        boundary.displayQuotationMenu();
         Quotation quotation = new Quotation();
         String noOfPeople = scan.nextLine();
         int noOfpeople = Integer.parseInt(noOfPeople);
         quotation.setNoOfPeopleAttending(noOfpeople);
         quotation.setHall(hall);
-        quotation.setEstimatedPrice(calculatePrice(quotation));
-        UserInterface.displayEstimatedPrice(quotation.getEstimatedPrice());
-        UserInterface.askForCaterPrefer();
+        //quotation.setEstimatedPrice(calculatePrice(quotation));
+        //boundary.displayEstimatedPrice(quotation.getEstimatedPrice());
+        boundary.askForCaterPrefer();
         String caterpref = scan.nextLine();
         switch(caterpref)
         {
@@ -162,14 +204,17 @@ public class PrimeEvent
             quotation.setIscateringPreferred(false);
             break;
             default:
-            UserInterface.displayInvalidInput();
+            boundary.displayInvalidInput();
             break;
-            
         }
-        UserInterface.displayEstimatedPrice(quotation.getEstimatedPrice());
-        
-        UserInterface.displayQuotation()
-        
+        quotation.setEstimatedPrice(calculatePrice(quotation));
+        System.out.println("Your quotation information has been saved.");
+        boundary.displayEstimatedPrice(quotation.getEstimatedPrice());
+        boundary.displayQuotation(quotation);
     }
 
+    public void MakeBooking(Quotation quotation)
+    {
+        
+    }
 }
