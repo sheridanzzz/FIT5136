@@ -53,10 +53,10 @@ public class ListOfHall
         times2 [1][2] = 1;
         times2 [2][0] = 1;
         Hall hall1 = new Hall("hawkerhall","Just beers on tap that we believe in.Beers that are fresh and, most importantly, brewed to be enjoyed with our hawker food","98 CHAPEL STREET, WINDSOR",40.0f, 78.4f, 27,  dates1,times1);
-        hall1.setUpdateDates(format.parse("2019-8-10"));
+        //hall1.setUpdateDates(format.parse("2019-8-10"));
         halls.add(hall1);
         Hall hall2 = new Hall("St Kilda Town Hall","St Kilda Town Hall is a grand, classically styled city hall","99A Carlisle St, St Kilda VIC 3182",35.0f, 67.2f, 35,  dates2,times2);
-        hall2.setUpdateDates(format.parse("2019-8-10"));
+        //hall2.setUpdateDates(format.parse("2019-8-10"));
         halls.add(hall2);
 
     }

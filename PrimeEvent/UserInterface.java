@@ -86,7 +86,7 @@ public class UserInterface
             System.out.printf("%18s", "Available time");
             System.out.printf("%18s", rating);
             System.out.printf("%15s\n", description);
-            //System.out.println(i+1 + ". " + "hall name: " + halls.get(i).getHallName() + " average rating: " + halls.get(i).getAverageRating() + " base price: " + halls.get(i).getHallBasePrice());
+            System.out.println(i+1 + ". " + "hall name: " + halls.get(i).getHallName() + " average rating: " + halls.get(i).getAverageRating() + " base price: " + halls.get(i).getHallBasePrice());
         }
         System.out.println("*******************End*********************");
         System.out.println("please input your choice of hall, otherwise ,press e to exit");
