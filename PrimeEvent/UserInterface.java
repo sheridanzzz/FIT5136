@@ -86,7 +86,7 @@ public class UserInterface
             System.out.printf("%18s", "Available time");
             System.out.printf("%18s", rating);
             System.out.printf("%15s\n", description);
-            System.out.println(i+1 + ". " + "hall name: " + halls.get(i).getHallName() + " average rating: " + halls.get(i).getAverageRating() + " base price: " + halls.get(i).getHallBasePrice());
+            //System.out.println(i+1 + ". " + "hall name: " + halls.get(i).getHallName() + " average rating: " + halls.get(i).getAverageRating() + " base price: " + halls.get(i).getHallBasePrice());
         }
         System.out.println("*******************End*********************");
         System.out.println("please input your choice of hall, otherwise ,press e to exit");
@@ -175,5 +175,48 @@ public class UserInterface
             System.out.println("Catering will not be provided");
        System.out.println("Total estimated price: " + quotation.getEstimatedPrice());
        System.out.println("*******************END********************"); 
+    }
+    
+    public void displayBookingDetail(Booking booking)
+    {
+        System.out.println("*****************Booking*****************");
+        System.out.println("Hall: " + booking.getQuotation().getHall().getHallName());
+        System.out.println("Event Type: " + booking.getQuotation().getTypeOfEvent());
+        System.out.println("Booking Date: " + booking.getBookingDate());
+        System.out.println("Number of people attending: " + booking.getQuotation().getNoOfPeopleAttending());
+        boolean bool = booking.getQuotation().getIsCateringPreferred();
+        if(bool == true)
+            System.out.println("Catering will be provided");
+        else
+            System.out.println("Catering will not be provided");
+        System.out.println("Total price: " + booking.getQuotation().getEstimatedPrice() * booking.getDiscountPercent());
+        System.out.println("Discount: " + booking.getDiscountPercent() * 100 + "%");
+        System.out.println("Booking Deposit amount: " + booking.getQuotation().getHall().getDeposPercen() * booking.getQuotation().getEstimatedPrice());
+        boolean bol = booking.getBookingStatus();
+        if(bol == true)
+            System.out.println("Booking Status: Deposit paid!");
+        else
+            System.out.println("Booking Status: Deposit not paid!");
+        System.out.println("*******************END********************"); 
+    }
+    
+    public void displayReceipt(Booking booking)
+    {
+        System.out.println("*****************Receipt*****************"); 
+        System.out.println("Customer name: " + booking.getUser().getFname() + " " + booking.getUser().getLname());
+        System.out.println("Customer Email: " + booking.getUser().getEmailAddr());
+        System.out.println("Hall: " + booking.getQuotation().getHall().getHallName());
+        System.out.println("Booking date: " + booking.getBookingDate());
+        //System.out.println("Booking time: " + booking.getQuotation().)
+        System.out.println("Total price: " + booking.getQuotation().getEstimatedPrice() * booking.getDiscountPercent());
+        boolean bol = booking.getBookingStatus();
+        if(bol == true)
+            System.out.println("Booking Status: Deposit paid!");
+        else
+            System.out.println("Booking Status: Deposit not paid!");
+        System.out.println("Number of people attending: " + booking.getQuotation().getNoOfPeopleAttending());
+        System.out.println("Location: " + booking.getQuotation().getHall().getHallAddr());
+        System.out.println("Event Type: " + booking.getQuotation().getTypeOfEvent());
+        System.out.println("Discount: " + booking.getDiscountPercent() * 100 + "%");
     }
 }   

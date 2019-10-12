@@ -44,7 +44,7 @@ public class Hall
         datesHasNotAvailableTime = newDatesHasNotAvailableTime;
         timeslotNotAvailable = newTimeslotNotAvailable;
         hallIsAvailable = true;
-        //updateDates = new Date();
+        updateDates = new Date();
     }
     
     public String getHallName()

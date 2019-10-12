@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.*;
 /**
  * Write a description of class PrimeEvent here.
  *
@@ -11,8 +12,6 @@ public class PrimeEvent
     private User logedInUser;
     private ListOfUser users;
     private ListOfHall halls;
-    private Review review;
-    
     
     public PrimeEvent()
     {
@@ -112,7 +111,8 @@ public class PrimeEvent
             case "1": selectViewAllHall(); break;
             //case "2": selectViewQuotations(); break;
             //case "3": selectViewBookings(); break;
-            case "4": System.exit(0); break;
+            //case "4": displayReceipt();break;
+            case "5": break;
             default: boundary.displayInvalidInput();
         }
 
@@ -217,12 +217,46 @@ public class PrimeEvent
 
     public void MakeBooking(Quotation quotation)
     {
-        
-    }
-    
-    /** Review booking method **/
-    public void giveReview(Review review)
-    {
-        
+        Scanner scan = new Scanner(System.in);
+        Booking booking = new Booking();
+        float price = 0;
+        UserInterface boundary = new UserInterface();
+        booking.setUser(logedInUser);
+        booking.setQuotation(quotation);
+        booking.setBookingDate(new Date());
+        System.out.println("Your quotation is now approved by the owner!");
+        System.out.println("Process to Booking?(y/n)");
+        String input = scan.nextLine();
+        if(input.equals("y"))
+        {
+            System.out.println("These are the quotation details.");
+            boundary.displayQuotation(quotation);
+            //System.out.println("This hall provides a " + )
+            //booking.setDiscountPercent();
+            System.out.println("If you want to take this discount, Please input discount keyword: ");
+            String key = scan.nextLine();
+            if(key.equals("PRIME"))
+            {
+                price = quotation.getEstimatedPrice() * booking.getDiscountPercent();
+                System.out.println("The total price for this booking is: " + price);
+            }
+            else
+            {
+                price = quotation.getEstimatedPrice();
+                System.out.println("The total price for this booking is: " + price);
+            }
+            System.out.println("Press enter to continue.");
+            scan.nextLine();
+        }
+        System.out.println("The deposit for this booking is: " + price * quotation.getHall().getDeposPercen());
+        String str = "n";
+        while(!str.equals("y"))
+        {
+            System.out.println("Deposit Confirm?(y/n)");
+            str = scan.nextLine();
+        }
+        System.out.println("Your booking has been confirmed! Here is your booking details: ");
+        booking.setBookingStatus(true);
+        boundary.displayBookingDetail(booking);
     }
 }
