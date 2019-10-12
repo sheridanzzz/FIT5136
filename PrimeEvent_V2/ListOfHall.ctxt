@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=ListOfHall
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ListOfHall\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=ListOfHall()
+comment2.params=newHallList
+comment2.target=ListOfHall(java.util.ArrayList)
+comment2.text=\r\n\ Constructor\ for\ objects\ of\ class\ ListOfHall\r\n
+comment3.params=
+comment3.target=void\ InitialHallList()
+comment4.params=
+comment4.target=java.util.ArrayList\ getHalls()
+comment5.params=newHalls
+comment5.target=void\ setHalls(java.util.ArrayList)
+comment6.params=hall
+comment6.target=void\ addHall(Hall)
+comment7.params=hall
+comment7.target=void\ deleteHall(Hall)
+comment8.params=
+comment8.target=void\ generateHall()
+comment9.params=
+comment9.target=java.util.ArrayList\ getListOfAvailableHalls()
+numComments=10
