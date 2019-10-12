@@ -11,6 +11,8 @@ public class PrimeEvent
     private User logedInUser;
     private ListOfUser users;
     private ListOfHall halls;
+    private Review review;
+    
     
     public PrimeEvent()
     {
@@ -214,6 +216,12 @@ public class PrimeEvent
     }
 
     public void MakeBooking(Quotation quotation)
+    {
+        
+    }
+    
+    /** Review booking method **/
+    public void giveReview(Review review)
     {
         
     }
