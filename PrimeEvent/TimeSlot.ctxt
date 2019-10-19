@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=TimeSlot
+comment1.params=
+comment1.target=TimeSlot()
+comment2.params=newMorning\ newAfternoon\ newEvening
+comment2.target=TimeSlot(boolean,\ boolean,\ boolean)
+comment3.params=
+comment3.target=boolean\ getMorning()
+comment4.params=newMorning
+comment4.target=void\ setMorning(boolean)
+comment5.params=
+comment5.target=boolean\ getAfternoon()
+comment6.params=newAfternoon
+comment6.target=void\ setAfternoon(boolean)
+comment7.params=
+comment7.target=boolean\ getEvening()
+comment8.params=newEvening
+comment8.target=void\ setEvening(boolean)
+numComments=9

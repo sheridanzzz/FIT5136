@@ -1,9 +1,6 @@
-import java.util.ArrayList;
 /**
- * Write a description of class HallOwner here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (team 27)
+ * @version (1.0)
  */
 public class HallOwner extends User
 {

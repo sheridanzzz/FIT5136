@@ -1,6 +1,5 @@
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.*;
+import java.time.LocalDate;
 /**
  * Write a description of class Hall here.
  *
@@ -9,21 +8,18 @@ import java.util.ArrayList;
  */
 public class Hall
 {
-    // instance variables - replace the example below with your own
     private String hallName;
-    private HallOwner hallOwner;
+    private HallOwner hallOwner;//deal with later
     private String description;
     private String address;
     private float depositPercentage;
     private float averageRating; //problem
     private float hallBasePrice;
     private int hallCapacity;
-    private Date[] datesNotAvailableTime;
-    private ArrayList<Date> datesHasNotAvailableTime;
-    private String timeslotAvailable;// problem
-    private int[][] timeslotNotAvailable;  
-    private Date updateDates;
+    private HashMap<LocalDate,TimeSlot> datetimesNotAvailable;
+    private LocalDate updateDate;
     private boolean hallIsAvailable;
+    private ArrayList<Review> reviews;
 
     /**
      * Constructor for objects of class Hall
@@ -32,8 +28,8 @@ public class Hall
     {
 
     }
-    
-    public Hall(String newHallName, String newDesc,String newAddr,float newDepositPercen, float newHallBasePrice, int newHallCapacity, ArrayList<Date> newDatesHasNotAvailableTime, int[][] newTimeslotNotAvailable)
+
+    public Hall(String newHallName, String newDesc,String newAddr,float newDepositPercen, float newHallBasePrice, int newHallCapacity,HashMap<LocalDate,TimeSlot> newDatetimesNotAvailable)
     {
         hallName = newHallName;
         description = newDesc;
@@ -41,12 +37,24 @@ public class Hall
         depositPercentage = newDepositPercen;
         hallBasePrice = newHallBasePrice;
         hallCapacity = newHallCapacity;
-        datesHasNotAvailableTime = newDatesHasNotAvailableTime;
-        timeslotNotAvailable = newTimeslotNotAvailable;
+        datetimesNotAvailable = newDatetimesNotAvailable;
         hallIsAvailable = true;
-        updateDates = new Date();
+        reviews = new ArrayList<Review>();
     }
-    
+
+    public Hall(String newHallName, String newDesc,String newAddr,float newDepositPercen, float newHallBasePrice, int newHallCapacity)
+    {
+        hallName = newHallName;
+        description = newDesc;
+        address = newAddr;
+        depositPercentage = newDepositPercen;
+        hallBasePrice = newHallBasePrice;
+        hallCapacity = newHallCapacity;
+        hallIsAvailable = true;
+        datetimesNotAvailable = new HashMap<LocalDate,TimeSlot>();
+        reviews = new ArrayList<Review>();
+    }
+
     public String getHallName()
     {
         return hallName;
@@ -81,94 +89,114 @@ public class Hall
     {
         return depositPercentage;
     }
-    
+
     public void setDeposPercen(float newDesposPrecen)
     {
         depositPercentage = newDesposPrecen;
     }
-    
+
     public float getAverageRating()
     {
         return averageRating;
     }
-    
+
     public void setAverageRating(float newAvgRating)
     {
         averageRating = newAvgRating;
     }
-    
+
     public float getHallBasePrice()
     {
         return hallBasePrice;
     }
-    
+
     public void setHallBasePrice(float newHallBasePrice)
     {
         hallBasePrice = newHallBasePrice;
     }
-    
+
     public int getHallCapacity()
     {
         return hallCapacity;
     }
-    
+
     public void setHallCapacity(int newCapacity)
     {
         hallCapacity = newCapacity;
     }
-    
-    public ArrayList<Date> getDateslotNotAvailable()
-    {
-        return datesHasNotAvailableTime;
-    }
-    
-    public void setDatesHasNotAvailableTime(ArrayList<Date>newDatesHasNotAvailableTime)
-    {
-        datesHasNotAvailableTime = newDatesHasNotAvailableTime;
-    }
-    
-    public int[][] getTimeslotAvailable()
-    {
-        return timeslotNotAvailable;
-    }
-    
 
-    public void setTimeslotAvailable(int[][] newTimeslotNotAvailable)
+    public void setHallDateTime()
     {
-        timeslotNotAvailable = newTimeslotNotAvailable;
+
     }
     
+    public void addReview(Review review)
+    {
+        reviews.add(review);
+        float sum = 0;
+        for (Review areview: reviews)
+        {
+            sum += areview.getRatingNo();
+        }
+        averageRating = sum/reviews.size();
+        
+        
+        
+    }
+
     public boolean getHallIsAvailable()
     {
         return hallIsAvailable;
     }
-    
+
     public void setHallIsAvailable(boolean newHallIsAvailable)
     {
         hallIsAvailable = newHallIsAvailable;
     }
-    
-    public Date getUpdateDates()
-    {
-        return updateDates;
-    }
-    
-    public void setUpdateDates(Date newUpdateDates)
-    {
-        updateDates = newUpdateDates;
-    }
-    
 
-    /**
-    checkStringIsBlank(String):boolean
-    **/ 
-    /**
-    public boolean checkHallAvailable()
+    public LocalDate getUpdateDates()
     {
-        return hallIsAvailable == true;
+        return updateDate;
     }
-    **/
-    /**
-    AcceptInteger(String):int
-    **/ 
+
+    public void setUpdateDates(LocalDate newUpdateDates)
+    {
+        updateDate = newUpdateDates;
+    }
+
+    public HashMap<LocalDate,TimeSlot> getDatetimesNotAvailable()
+    {
+        return datetimesNotAvailable;
+    }
+
+    public void  setDatetimesNotAvailable(HashMap<LocalDate,TimeSlot> newDatetimesNotAvailable)
+    {
+        datetimesNotAvailable = newDatetimesNotAvailable; 
+    }
+
+    public ArrayList<Review> getReviews()
+    {
+        return reviews;
+    }
+
+    public void setBookings(ArrayList<Review> newReviews)
+    {
+        reviews = newReviews; 
+    }
+
+    public boolean checkDateAvailable(LocalDate date)
+    {
+        if(datetimesNotAvailable.containsKey(date))
+        {
+            TimeSlot ts = datetimesNotAvailable.get(date);
+            if(ts.getAfternoon()||ts.getMorning()||ts.getEvening())
+            {
+                return true;
+            }
+            else
+            return false;
+        }   
+        else
+        return true;
+    }
 }

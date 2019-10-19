@@ -13,5 +13,5 @@ comment4.target=void\ editUserInfo(User)
 comment5.params=user
 comment5.target=void\ disableUser(User)
 comment6.params=usremail
-comment6.target=boolean\ checkAUser(java.lang.String)
+comment6.target=int\ checkAUser(java.lang.String)
 numComments=7

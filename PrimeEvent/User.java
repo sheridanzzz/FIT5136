@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 /**
- * Write a description of class User here.
- *
  * @author (Team 27)
  * @version (1.0)
  */
@@ -13,6 +11,7 @@ public class User
     private String password;
     private boolean accountStatus;
     private ArrayList<Quotation> listOfQuotation;
+    private ArrayList<Booking> bookings;
 
     /**
      * Constructor for objects of class User
@@ -25,8 +24,9 @@ public class User
         password = " ";
         accountStatus = true;
         listOfQuotation = new ArrayList<Quotation>();
+        bookings = new ArrayList<Booking>();
     }
-    
+
     public User(String newFName, String newLname, String newEmailAddress, String newPassword)
     {
         fName = newFName;
@@ -35,8 +35,9 @@ public class User
         password = newPassword;
         accountStatus = true;
         listOfQuotation = new ArrayList<Quotation>(); 
+        bookings = new ArrayList<Booking>();
     }
-    
+
     public String getFname()
     {
         return fName;
@@ -96,35 +97,51 @@ public class User
     {
         listOfQuotation = newListOfQuotations;
     }
-    
+
     public void addQuotation(Quotation newQuotation)
     {
         listOfQuotation.add(newQuotation);
     }
-    
+
     public void delQuotation(Quotation quotation)
     {
-       listOfQuotation.remove(quotation); 
+        listOfQuotation.remove(quotation); 
     }
+
+    public ArrayList<Booking> getBookings()
+    {
+        return bookings;
+    }
+
+    public void setBookings(ArrayList<Booking> newBookings)
+    {
+        bookings = newBookings; 
+    }
+    
+    public void addBooking(Booking booking)
+    {
+        bookings.add(booking);
+    }
+
+    public void delBooking(Booking booking)
+    {
+        bookings.remove(booking); 
+    }
+    
     
     /**
     private boolean checkStringIsBlank(String string)
     {
-        
+
     }
-    **/
-    
+     **/
+
     /**
     private boolean checkPassword(String newPassword)
     {
-        
+
     }
      */
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+
 
 }

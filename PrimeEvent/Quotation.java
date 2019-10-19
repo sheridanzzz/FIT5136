@@ -1,18 +1,19 @@
-
+import java.time.LocalDate;
 /**
- * Write a description of class Quotation here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Team 27)
+ * @version (1.0)
  */
 public class Quotation
 {
     // instance variables - replace the example below with your own
+    private Customer customer;
     private Hall hall;
     private float estimatedPrice;
     private String typeOfEvent;
     private boolean isCateringPreferred;
     private int noOfPeopleAttending;
+    private LocalDate date;
+    private TimeSlot time;
 
     /**
      * Constructor for objects of class Quotation
@@ -27,15 +28,26 @@ public class Quotation
         noOfPeopleAttending = 0;
     }
     
-    public Quotation(Hall newHall,float newEstPrice,String newTypeOfEv, boolean newIsCatePref, int newNoOfPeopAttend)
+    public Quotation(Customer newCustomer,Hall newHall,String newTypeOfEv, boolean newIsCatePref, int newNoOfPeopAttend,LocalDate newDate,TimeSlot newTime)
     {
         hall = newHall;
         typeOfEvent = newTypeOfEv;
         isCateringPreferred = newIsCatePref;
         noOfPeopleAttending = newNoOfPeopAttend;
+        date = newDate;
+        time = newTime;
         estimatedPrice = isCateringPreferred?(hall.getHallBasePrice()+20) * noOfPeopleAttending:hall.getHallBasePrice() * noOfPeopleAttending;
     }
-
+    
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+    
+    public void setCustomer(Customer newCustomer)
+    {
+        customer = newCustomer;
+    }
     public Hall getHall()
     {
         return hall;
@@ -86,13 +98,31 @@ public class Quotation
         noOfPeopleAttending = newNoOfPeopleAttending;
     }
    
-    public boolean checkCapacity(int planedNoOfPeopleAttend, Hall newHall)
+    public boolean checkCapacity(int planedNoOfPeopleAttend)
     {
-        if (planedNoOfPeopleAttend <= newHall.getHallCapacity())
+        if (planedNoOfPeopleAttend <= hall.getHallCapacity())
             return true;
         else
             return false;
     }
     
+    public void setTimeSlot(TimeSlot tm)
+    {
+        time = tm;
+    }
+    
+    public TimeSlot getTimeSlot()
+    {
+        return time;
+    }
+    public void setDate(LocalDate da)
+    {
+        date =da;
+    }
+    
+    public LocalDate getDate()
+    {
+        return date;
+    }
 
 }

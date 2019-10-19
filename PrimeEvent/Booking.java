@@ -1,47 +1,63 @@
-import java.util.Date;
+import java.time.LocalDate;
 /**
- * Write a description of class Booking here.
+ * Write a description of class Hall here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Team 27
+ * @version 1.1
  */
 public class Booking
 {
+    static enum BookStatus
+    {
+        DEPOSNOTPAID,
+        DEPOSPAID,
+        CANCELLED,
+        FULLYPAID
+    }
     // instance variables - replace the example below with your own
-    private User user;
-    private Date bookingDate;
+    private LocalDate bookingDate;
     private float discountPercent;
-    private boolean bookingStatus;
+    private BookStatus bookingStatus;
     private Quotation quotation;
+    private Review review;
+
 
     /**
      * Constructor for objects of class Booking
      */
     public Booking()
     {
-        user = new User();
-        bookingDate = new Date();
+        bookingDate = LocalDate.now();
         discountPercent = 0;
-        bookingStatus = true;
+        bookingStatus = BookStatus.DEPOSNOTPAID;
         quotation = new Quotation();
     }
 
-    public User getUser()
+    public Booking(float newDiscountPercent, Quotation newQuotation )
     {
-        return user;
+        bookingDate = LocalDate.now();
+        discountPercent = newDiscountPercent;
+        bookingStatus = BookStatus.DEPOSNOTPAID;
+        quotation = newQuotation;
     }
 
-    public void setUser(User newUser)
+    public Booking(float newDiscountPercent, Quotation newQuotation, Review newReview)
     {
-        user = newUser;
+        bookingDate = LocalDate.now();
+        discountPercent = newDiscountPercent;
+        bookingStatus = BookStatus.DEPOSNOTPAID;
+        quotation = newQuotation;
+        review = newReview;
+        
     }
-
-    public Date getBookingDate()
+    
+    public LocalDate getBookingDate()
     {
         return bookingDate;
     }
 
-    public void setBookingDate(Date newBookingDate)
+    
+    public void setBookingDate(LocalDate newBookingDate)
     {
         bookingDate = newBookingDate;
     }
@@ -56,12 +72,12 @@ public class Booking
         discountPercent = newDiscountPercent;
     }
 
-    public boolean getBookingStatus()
+    public BookStatus getBookingStatus()
     {
         return bookingStatus;
     }
 
-    public void setBookingStatus(boolean newBookingStatus)
+    public void setBookingStatus(BookStatus newBookingStatus)
     {
         bookingStatus = newBookingStatus;
     }
@@ -74,5 +90,20 @@ public class Booking
     public void setQuotation(Quotation newQuotation)
     {
         quotation = newQuotation;
+    }
+
+    public Review getReview()
+    {
+        return review;
+    }
+
+    public void setReview(Review newReview)
+    {
+        review = newReview;
+    }
+    
+    public String toString()
+    {
+        return "";
     }
 }
