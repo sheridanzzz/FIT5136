@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=HallOwner
+comment0.text=\r\n\ @author\ (team\ 27)\r\n\ @version\ (1.0)\r\n
+comment1.params=
+comment1.target=HallOwner()
+comment2.params=
+comment2.target=ListOfHall\ getHallList()
+comment3.params=newListOfHall
+comment3.target=void\ setHallList(ListOfHall)
+numComments=4

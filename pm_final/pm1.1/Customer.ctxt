@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Customer
+comment0.text=\r\n\ @author\ (team\ 27)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Customer()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Customer\r\n
+comment2.params=newFName\ newLname\ newEmailAddress\ newPassword
+comment2.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment3.params=newFName\ newLname\ newEmailAddress\ newPassword\ newIsSeniorCitizen\ newIsVeteran
+comment3.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ boolean,\ boolean)
+comment4.params=
+comment4.target=boolean\ getIsSeniorCitizen()
+comment5.params=newIsSeniorCitizen
+comment5.target=void\ setIsSeniorCitizen(boolean)
+comment6.params=
+comment6.target=boolean\ getIsVeteran()
+comment7.params=newIsVeteran
+comment7.target=void\ setIsVeteran(boolean)
+comment8.params=
+comment8.target=java.lang.String\ toString()
+comment8.text=Method\ to\ convert\ to\ string*
+numComments=9
